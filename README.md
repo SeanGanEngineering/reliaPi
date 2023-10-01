@@ -9,4 +9,4 @@ reliaPi is a testing tool kit for mechanical reliability testing.
   - Python
   - Django
 - DB
-  - Mysql
+  - Postgres
