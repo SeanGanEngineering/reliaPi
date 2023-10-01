@@ -6,7 +6,6 @@ reliaPi is a testing tool kit for mechanical reliability testing.
   - Vite
   - React-native
 - Backend
-  - Python
-  - Django
+  - Go
 - DB
   - Postgres
