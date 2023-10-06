@@ -28,5 +28,9 @@ func main() {
 	router.GET("/users", func(c *gin.Context) {
 		reliaPi.GetUsers(db, c) // Call your GetUsers function with the database connection
 	})
+	router.GET("/users/:id", func(c *gin.Context) {
+		userID := c.Param("id")
+		reliaPi.GetUserById(db, userID, c)
+	})
 	router.Run(":8080")
 }
