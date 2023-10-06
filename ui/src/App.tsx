@@ -1,5 +1,3 @@
-import '@fontsource/inter';
-
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,15 +6,16 @@ import {
 } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
 import { BodyWrapper, FooterWrapper, HeaderWrapper, PageWrapper } from './components/layout/Layout.styled';
-import Footer from './components/footer/Footer';
-import Drawer from '@mui/joy/Drawer';
-import { SwipeableDrawer } from '@mui/material';
+import Navigation from './components/navigation/Navigation';
+import './global.css';
 
 function App() {
 
   return (
     <PageWrapper>
     <HeaderWrapper>
+      <Navigation />
+      <h1>ReliaPi</h1>
     </HeaderWrapper>
     <BodyWrapper>
       <Router>
@@ -26,7 +25,6 @@ function App() {
       </Router>
     </BodyWrapper>
     <FooterWrapper>
-     <Footer/>
     </FooterWrapper>
     </PageWrapper>
   )
