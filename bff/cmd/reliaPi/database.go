@@ -1,4 +1,4 @@
-package main
+package reliaPi
 
 import (
 	"database/sql"
@@ -17,10 +17,10 @@ type Env struct {
 // usually we should get them from env like os.Getenv("variableName")
 const (
 	host     = "localhost"
-	port     = 5439
+	port     = 5432
 	user     = "postgres"
-	password = "root"
-	dbname   = "artists"
+	password = "password"
+	dbname   = "postgres"
 )
 
 // ConnectDB tries to connect DB and on succcesful it returns
@@ -32,5 +32,38 @@ func ConnectDB() (*sql.DB, error) {
 		log.Printf("failed to connect to database: %v", err)
 		return &sql.DB{}, err
 	}
+
+	err = db.Ping()
+	if err != nil {
+		return nil, err
+	}
+
+	fmt.Println(db)
 	return db, nil
+}
+func CreateDatabaseAndTables(db *sql.DB) error {
+	// SQL statements to create a database and a table
+	createDBSQL := `
+			CREATE DATABASE mydb;
+	`
+
+	createTableSQL := `
+			CREATE TABLE IF NOT EXISTS users (
+					id serial PRIMARY KEY,
+					username VARCHAR (50) UNIQUE NOT NULL,
+					email VARCHAR (100) NOT NULL
+			);
+	`
+
+	_, err := db.Exec(createDBSQL)
+	if err != nil {
+		return err
+	}
+
+	_, err = db.Exec(createTableSQL)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
