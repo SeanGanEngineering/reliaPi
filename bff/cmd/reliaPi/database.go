@@ -3,8 +3,9 @@ package reliaPi
 import (
 	"database/sql"
 	"fmt"
-	"log"
+	"net/http"
 
+	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
 )
 
@@ -28,19 +29,20 @@ const (
 func ConnectDB() (*sql.DB, error) {
 	connString := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname = %s sslmode=disable", host, port, user, password, dbname)
 	db, err := sql.Open("postgres", connString)
-	if err != nil {
-		log.Printf("failed to connect to database: %v", err)
-		return &sql.DB{}, err
-	}
+	CheckError(err)
 
 	err = db.Ping()
-	if err != nil {
-		return nil, err
-	}
+	CheckError(err)
 
-	fmt.Println(db)
 	return db, nil
 }
+
+func CheckError(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
 func CreateDatabaseAndTables(db *sql.DB) error {
 	// SQL statements to create a database and a table
 	createDBSQL := `
@@ -66,4 +68,47 @@ func CreateDatabaseAndTables(db *sql.DB) error {
 	}
 
 	return nil
+}
+
+func InsertUser(db *sql.DB, username, email string) error {
+	// SQL statement with placeholders
+	sqlStatement := `
+			INSERT INTO users (username, email)
+			VALUES ($1, $2)
+	`
+
+	// Execute the SQL statement with user data
+	_, err := db.Exec(sqlStatement, username, email)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func GetUsers(db *sql.DB, c *gin.Context) {
+	// SQL statement with placeholders
+	rows, err := db.Query("SELECT * FROM users")
+	CheckError(err)
+	defer rows.Close()
+
+	var users []gin.H // Create a slice to collect user data
+	for rows.Next() {
+		var id int
+		var username string
+		var email string
+		if err := rows.Scan(&id, &username, &email); err != nil {
+			fmt.Println("Error scanning row:", err)
+		}
+		fmt.Printf("ID: %d, Name: %s\n", id, username)
+		users = append(users, gin.H{"ID": id, "Username": username, "Email": email}) // Collect user data
+	}
+
+	if err := rows.Err(); err != nil {
+		fmt.Println("Error iterating through result set:", err)
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"users": users,
+	})
 }
