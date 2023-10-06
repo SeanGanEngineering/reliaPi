@@ -12,11 +12,10 @@ export const PageWrapper = styled.div`
 
 export const HeaderWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   height: 5%;
   width: 100%;
-
 `
 
 export const BodyWrapper = styled.div`
@@ -34,3 +33,7 @@ export const FooterWrapper = styled.div`
   height: 10%;
   width: 100%;
 `
+export const TextWrapper = styled.div`
+  justify-content: space-between;
+
+`;
