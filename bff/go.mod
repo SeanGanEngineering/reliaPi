@@ -1,4 +1,4 @@
-module main
+module reliaPi
 
 go 1.21.1
 
