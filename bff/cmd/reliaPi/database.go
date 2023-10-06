@@ -112,3 +112,24 @@ func GetUsers(db *sql.DB, c *gin.Context) {
 		"users": users,
 	})
 }
+
+type User struct {
+	id       int
+	username string
+	email    string
+}
+
+func GetUserById(db *sql.DB, userID string, c *gin.Context) {
+	var id int
+	var username string
+	var email string
+
+	err := db.QueryRow("SELECT * FROM users WHERE id = $1", userID).Scan(&id, &username, &email)
+
+	if err != nil {
+		fmt.Println("Error querying user by ID:", err)
+		c.JSON(http.StatusNotFound, gin.H{"error": "User not found"})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"id": id, "username": username, "email": email})
+}
