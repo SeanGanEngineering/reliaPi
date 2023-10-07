@@ -57,7 +57,6 @@ func CreateDatabaseAndTables(db *sql.DB) error {
 					email VARCHAR (100) NOT NULL
 			);
 	`
-
 	_, err := db.Exec(createDBSQL)
 	if err != nil {
 		return err
