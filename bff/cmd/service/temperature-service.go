@@ -32,14 +32,14 @@ func AddDataPoint(db *sql.DB, c *gin.Context) error {
 
 	sqlStatement := `
 		INSERT INTO temperatures (name, timestamp, temperature)
-		VALUES ($1, $2, $3)
+		VALUES ($1, to_timestamp($2 / 1000.0), $3)
 	`
 	if err := c.ShouldBindJSON(&temperaturePoint); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return err
 	}
 
-	_, err := db.Exec(sqlStatement, temperaturePoint.Name, temperaturePoint.Timestamp, temperaturePoint.Timestamp)
+	_, err := db.Exec(sqlStatement, temperaturePoint.Name, temperaturePoint.Timestamp, temperaturePoint.TemperatureC)
 	if err != nil {
 		return err
 	}

@@ -1,9 +1,7 @@
 package types
 
-import "time"
-
 type TemperaturePoint struct {
-	Timestamp    time.Time
+	Timestamp    float64
 	TemperatureC int
 	Name         string
 }
