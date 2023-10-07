@@ -4,6 +4,8 @@ import (
 	"fmt"
 	reliaPiService "reliaPi/cmd/service"
 
+	"github.com/gin-contrib/cors"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -21,6 +23,12 @@ func RunApp() {
 	reliaPiService.CreateTemperatureTables(db)
 
 	router := gin.Default()
+
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"http://localhost:5173"} // Replace with your Vite app's URL
+	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
+	config.AllowHeaders = []string{"Content-Type", "Authorization"}
+	router.Use(cors.New(config))
 
 	// User mapping
 	router.GET("/users", func(c *gin.Context) {
