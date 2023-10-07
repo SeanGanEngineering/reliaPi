@@ -1,9 +1,10 @@
-package reliaPi
+package reliaPiService
 
 import (
 	"database/sql"
 	"fmt"
 	"net/http"
+	"reliaPi/types"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
@@ -70,18 +71,27 @@ func CreateDatabaseAndTables(db *sql.DB) error {
 	return nil
 }
 
-func InsertUser(db *sql.DB, username, email string) error {
+// Add user
+func InsertUser(db *sql.DB, c *gin.Context) error {
+	var userData types.UserData
 	// SQL statement with placeholders
 	sqlStatement := `
 			INSERT INTO users (username, email)
 			VALUES ($1, $2)
 	`
 
+	if err := c.ShouldBindJSON(&userData); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return err
+	}
+
 	// Execute the SQL statement with user data
-	_, err := db.Exec(sqlStatement, username, email)
+	_, err := db.Exec(sqlStatement, userData.Username, userData.Email)
 	if err != nil {
 		return err
 	}
+
+	c.IndentedJSON(http.StatusCreated, userData)
 
 	return nil
 }
