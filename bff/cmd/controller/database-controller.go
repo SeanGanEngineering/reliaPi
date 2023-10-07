@@ -16,15 +16,13 @@ func RunApp() {
 	}
 	defer db.Close()
 
-	// err = reliaPi.InsertUser(db, "newuser4", "newuser@example.com")
-	// if err != nil {
-	// 	fmt.Println("Error inserting user:", err)
-	// 	return
-	// }
 	fmt.Println("Database actions completed")
+
+	reliaPiService.CreateTemperatureTables(db)
 
 	router := gin.Default()
 
+	// User mapping
 	router.GET("/users", func(c *gin.Context) {
 		reliaPiService.GetUsers(db, c) // Call your GetUsers function with the database connection
 	})
@@ -34,8 +32,17 @@ func RunApp() {
 		reliaPiService.GetUserById(db, userID, c)
 	})
 
-	router.POST("/users/", func(c *gin.Context) {
+	router.POST("/users", func(c *gin.Context) {
 		reliaPiService.InsertUser(db, c)
+	})
+
+	//Temperatures mapping
+	router.GET("/temperatures", func(c *gin.Context) {
+		reliaPiService.GetTemps(db, c)
+	})
+
+	router.POST("/temperatures", func(c *gin.Context) {
+		reliaPiService.AddDataPoint(db, c)
 	})
 
 	router.Run(":8080")

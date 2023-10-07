@@ -3,9 +3,9 @@ package types
 import "time"
 
 type TemperaturePoint struct {
-	timestamp    time.Time
-	temperatureC int
-	name         string
+	Timestamp    time.Time
+	TemperatureC int
+	Name         string
 }
 
 type UserData struct {
