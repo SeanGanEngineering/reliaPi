@@ -1,17 +1,17 @@
 import { Button } from '@mui/material';
 import React from 'react';
-import { addTemperaturePoint } from '../../api/temperature';
+import { createRandomTemperaturePoints } from '../../api/temperature';
 import { TemperatureProps } from '../../types/types';
 
 const TemperatureAdd = () => {
-  const data: TemperatureProps = {
-    Name: '',
-    Timestamp: Date.now(),
-    TemperatureC: 0,
-  }
+  // const data: TemperatureProps = {
+  //   Name: '',
+  //   Timestamp: Date.now(),
+  //   TemperatureC: 0,
+  // }
 
   return (
-    <Button onClick={async () => addTemperaturePoint(data)}>
+    <Button onClick={async () => await createRandomTemperaturePoints()}>
       Add temperature
     </Button>
   );

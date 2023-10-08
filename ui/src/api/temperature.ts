@@ -22,3 +22,22 @@ export const addTemperaturePoint = async (temperatureData: TemperatureProps) => 
 
   return response;
 }
+
+export const createRandomTemperaturePoints = async () => {
+  const constructor: TemperatureProps = {
+    Name: 'TimeTempTest',
+    Timestamp: Date.now(),
+    TemperatureC: 3
+  }
+
+  for (let i = 0; i < 30; i++) {
+    await new Promise<void>((resolve) => {
+      setTimeout(async () => {
+        await addTemperaturePoint(constructor);
+        resolve();
+      }, 1000);
+    });
+
+    constructor.TemperatureC += constructor.TemperatureC + Math.random() * 5;
+  }
+}
