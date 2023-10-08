@@ -2,7 +2,7 @@ package types
 
 type TemperaturePoint struct {
 	Timestamp    float64
-	TemperatureC int
+	TemperatureC float64
 	Name         string
 }
 
