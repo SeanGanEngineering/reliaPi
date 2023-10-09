@@ -25,7 +25,7 @@ export const addTemperaturePoint = async (temperatureData: TemperatureProps) => 
 
 export const createRandomTemperaturePoints = async () => {
   const constructor: TemperatureProps = {
-    Name: 'TimeTemp',
+    Name: 'TimeTempSigma',
     Timestamp: Date.now(),
     TemperatureC: 3
   }
@@ -35,7 +35,7 @@ export const createRandomTemperaturePoints = async () => {
     if (i < 30) {
       addTemperaturePoint(constructor);
       constructor.Timestamp =  Date.now(),
-      constructor.TemperatureC = constructor.TemperatureC + (Math.random() * 2);
+      constructor.TemperatureC = (Math.random() * 2);
       i++;
       console.log(i);
     } else {
