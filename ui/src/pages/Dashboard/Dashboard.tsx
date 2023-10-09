@@ -3,6 +3,7 @@ import { PageContainer } from './Dashboard.styled';
 import LineGraph from '../../components/graph/LineGraph';
 import TemperatureAdd from '../../components/TemperatureAdd/TemperatureAdd';
 import { LineChart } from '@mui/x-charts';
+import SSigmaGraph from '../../components/graph/SSigmaGraph';
 
 const Dashboard = () => {
 
@@ -10,6 +11,7 @@ const Dashboard = () => {
   return (
     <PageContainer>
       <LineGraph />
+      <SSigmaGraph />
       <TemperatureAdd />
     </PageContainer>
   );
