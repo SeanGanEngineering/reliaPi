@@ -1,10 +1,10 @@
-package reliaPiService
+package controllers
 
 import (
 	"database/sql"
 	"fmt"
 	"net/http"
-	"reliaPi/types"
+	models "reliaPi/pkg/models"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
@@ -72,7 +72,7 @@ func CreateDatabaseAndTables(db *sql.DB) error {
 
 // Add user
 func InsertUser(db *sql.DB, c *gin.Context) error {
-	var userData types.UserData
+	var userData models.UserData
 	// SQL statement with placeholders
 	sqlStatement := `
 			INSERT INTO users (username, email)
