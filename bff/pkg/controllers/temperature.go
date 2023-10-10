@@ -1,10 +1,10 @@
-package reliaPiService
+package controllers
 
 import (
 	"database/sql"
 	"fmt"
 	"net/http"
-	"reliaPi/types"
+	models "reliaPi/pkg/models"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -28,7 +28,7 @@ func CreateTemperatureTables(db *sql.DB) error {
 }
 
 func AddDataPoint(db *sql.DB, c *gin.Context) error {
-	var temperaturePoint types.TemperaturePoint
+	var temperaturePoint models.TemperaturePoint
 
 	sqlStatement := `
 		INSERT INTO temperatures (name, timestamp, temperature)
