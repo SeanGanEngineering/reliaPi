@@ -4,7 +4,7 @@ export const PageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
@@ -12,25 +12,29 @@ export const PageWrapper = styled.div`
 
 export const HeaderWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: start;
   align-items: center;
-  height: 5%;
-  width: 100%;
+  height: 100%;
+  width: 60px;
+  background-color: #181A1C;
 `
 
-export const BodyWrapper = styled.div`
+export const LayoutWrapper = styled.div`
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: start;
+  height: 100%;
+  width: 500px;
+  background-color: #F0F2F4;
+`
+
+export const ContentWrapper = styled.div` 
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 85%;
-  width: 100%;
-`
-
-export const FooterWrapper = styled.div` 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10%;
+  height: 100%;
   width: 100%;
 `
 export const TextWrapper = styled.div`
