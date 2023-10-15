@@ -1,7 +1,8 @@
 import { Box, Button, Divider, Drawer, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 import React, { useState } from 'react';
 import List from '@mui/material/List';
-import { Inbox, Mail, Menu } from '@mui/icons-material';
+import { AccessAlarm, Add, BarChart, Home, Inbox, Mail, Menu, Monitor, Search, Settings, Wifi } from '@mui/icons-material';
+import { NavWrapper } from './Navigation.styled';
 
 const Navigation = () => {
   const [viewMenu, setViewMenu] = useState(false);
@@ -61,12 +62,22 @@ const Navigation = () => {
 
 
   return (
-    <div>
-      <Button onClick={() => setViewMenu(true)}><Menu /></Button>
+    <NavWrapper>
+      <Button onClick={() => setViewMenu(true)}><Settings /></Button>
+      <br />
+      <Button onClick={() => setViewMenu(true)}><Home /></Button>
+      <Button onClick={() => setViewMenu(true)}><Add /></Button>
+      <Button onClick={() => setViewMenu(true)}><Wifi /></Button>
+      <Button onClick={() => setViewMenu(true)}><Search /></Button>
+      <br />
+      <Button onClick={() => setViewMenu(true)}><Monitor /></Button>
+      <Button onClick={() => setViewMenu(true)}><BarChart /></Button>
+      <Button onClick={() => setViewMenu(true)}><AccessAlarm /></Button>
+
       <Drawer anchor='left' open={viewMenu} onClose={() => setViewMenu(false)}>
         <MenuList />
       </Drawer>
-    </div>
+    </NavWrapper>
   );
 };
 
