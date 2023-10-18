@@ -1,7 +1,7 @@
 import { Box, Button, Divider, Drawer, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 import React, { useState } from 'react';
 import List from '@mui/material/List';
-import { AccessAlarm, Add, BarChart, Home, Inbox, Mail, Menu, Monitor, Search, Settings, Wifi } from '@mui/icons-material';
+import { AccessAlarm, Add, BarChart, Home, Inbox, Mail, Monitor, Search, Settings, Wifi } from '@mui/icons-material';
 import { NavWrapper } from './Navigation.styled';
 
 const Navigation = () => {

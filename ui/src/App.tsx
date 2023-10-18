@@ -4,11 +4,11 @@ import {
   Route,
 
 } from "react-router-dom";
-import Dashboard from './pages/Dashboard/Dashboard';
-import { LayoutWrapper, ContentWrapper, HeaderWrapper, PageWrapper } from './components/layout/Layout.styled';
-import Navigation from './components/navigation/Navigation';
+import Dashboard from './pages/dashboard/Dashboard';
+import { LayoutWrapper, ContentWrapper, HeaderWrapper, PageWrapper } from './pages/layout/Layout.styled';
+import Navigation from './pages/layout/navigation/Navigation';
 import './global.css';
-import HeadModule from "./components/headModule/HeadModule";
+import HeadModule from "./pages/layout/headModule/HeadModule";
 
 function App() {
 

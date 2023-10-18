@@ -10,7 +10,7 @@ const GraphCard = ({children}) => {
       justifyContent: 'center', 
       alignItems: 'center',
       gap: '0px',
-      margin: '0px',
+      margin: '30px',
       padding: '0px',
       maxWidth: '500px'}}>
       <CardContent>
