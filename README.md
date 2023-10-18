@@ -18,8 +18,8 @@ This application is designed to automate and control reliability testing for mec
 
 Make sure you have Node.js, Go, and PostgreSQL installed on your system.
 
-1. Clone the repository: `git clone <repository-url>`
-2. Navigate to the project directory: `cd mechanical-products-reliability-testing-app`
+1. Clone the repository: `git clone https://github.com/SeanGanEngineering/reliaPi`
+2. Navigate to the project directory: `cd reliaPi`
 3. Install dependencies: `npm install`
 4. Set up the database using PostgreSQL
 5. Start the development server: `npm run dev`
