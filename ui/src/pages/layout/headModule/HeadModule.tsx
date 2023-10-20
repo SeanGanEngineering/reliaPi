@@ -1,11 +1,11 @@
 import React from 'react';
 import BreadCrumbs from '../../../components/breadcrumbs/BreadCrumbs';
-import { LayoutWrapper, SectionWrapper } from './HeadModule.styled';
+import { LayoutWrapper, LogoText, SectionWrapper } from './HeadModule.styled';
 import Search from '../../../components/search/Search';
-import { DateCalendar, LocalizationProvider} from '@mui/x-date-pickers';
-import {AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DateCalendar, TimeField } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import EventCard from '../../../components/card/EventCard';
+import logo from '../../../assets/images/logo.png';
 
 const HeadModule = () => {
   const getFormattedDate = (): string => {
@@ -26,11 +26,13 @@ const HeadModule = () => {
   return (
     <LayoutWrapper>      
       <BreadCrumbs path={["home", "profile", "charts", "temperature"]}/>
-      <h1>ReliaPi</h1>
+      <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+        <img src={logo} height={'50px'} width={'50px'} style={{borderRadius: '10px'}}/>
+        <LogoText>SCOUT</LogoText>
+      </div>
+      
       <Search />
-      <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="de">
-        <DateCalendar defaultValue={dayjs(getFormattedDate())}/>
-      </LocalizationProvider>
+      <DateCalendar defaultValue={dayjs(getFormattedDate())}/>
       <SectionWrapper>
       <EventCard />
       <EventCard />

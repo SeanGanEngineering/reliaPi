@@ -15,3 +15,10 @@ align-items: center;
 justify-content: center;
 gap: 10px;
 `
+
+export const LogoText = styled.div`
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+`
