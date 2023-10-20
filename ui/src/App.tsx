@@ -9,10 +9,15 @@ import { LayoutWrapper, ContentWrapper, HeaderWrapper, PageWrapper } from './pag
 import Navigation from './pages/layout/navigation/Navigation';
 import './global.css';
 import HeadModule from "./pages/layout/headModule/HeadModule";
+import TestDetails from "./pages/testDetails/TestDetails";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 function App() {
 
   return (
+    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="de">
+    <Router>
     <PageWrapper>
     <HeaderWrapper>
       <Navigation />
@@ -21,13 +26,14 @@ function App() {
       <HeadModule />
     </LayoutWrapper>
     <ContentWrapper>
-    <Router>
         <Routes>
           <Route element={<Dashboard />} path='/'/>
+          <Route element={<TestDetails />} path='/plan' />
         </Routes>
-      </Router>
     </ContentWrapper>
     </PageWrapper>
+    </Router>
+    </LocalizationProvider>
   )
 }
 

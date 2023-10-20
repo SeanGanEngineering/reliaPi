@@ -1,9 +1,5 @@
 import { Avatar, Card, CardContent, CardHeader, Typography } from '@mui/material';
-import React, { ReactNode } from 'react';
-
-type Props = {
-  children: ReactNode;
-};
+import React from 'react';
 
 const EventCard: React.FC = () => {
   return (
