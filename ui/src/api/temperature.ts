@@ -12,15 +12,18 @@ export const getTemperaturePoints = async () => {
 }
 
 export const addTemperaturePoint = async (temperatureData: TemperatureProps) => {
-  const response = await axios({
-    method: 'post',
-    url: 'http://localhost:8080/temperatures',
-    data: temperatureData
-  })
+  try {
+    const response = await axios({
+      method: 'post',
+      url: 'http://localhost:8080/temperatures',
+      data: temperatureData
+    })
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error)
+  }
 
-  console.log(response);
-
-  return response;
 }
 
 export const createRandomTemperaturePoints = async () => {
