@@ -5,8 +5,10 @@ import { Avatar, CardHeader, IconButton } from '@mui/material';
 import GraphCard from '../card/GraphCard';
 import { MoreVert } from '@mui/icons-material';
 const LineGraph = () => {
-  const [tempPoints, setTempPoints] = useState<{ data: any[] }>({ data: [1] });
-  const [time, setTime] = useState<{ data: any[] }>({ data: [1] });
+  const [tempPoints, setTempPoints] = useState<{ data: number[] }>({
+    data: [1],
+  });
+  const [time, setTime] = useState<{ data: number[] }>({ data: [1] });
   useEffect(() => {
     (async () => {
       const xAxisArray: any[] = [];
