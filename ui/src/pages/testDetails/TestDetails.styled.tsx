@@ -33,6 +33,7 @@ export const StyledTimeSelector = styled(TimePicker)`
 export const DateTimeWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 10px;
 `;
 

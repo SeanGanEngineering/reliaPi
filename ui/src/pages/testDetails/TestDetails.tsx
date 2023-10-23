@@ -4,13 +4,12 @@ import {
   NavWrapper,
   PaddingWrapper,
   PageWrapper,
-  StyledDateSelector,
   StyledTextField,
-  StyledTimeSelector,
   TextInput,
 } from './TestDetails.styled';
 import { Autocomplete, TextField, Typography } from '@mui/material';
 import { testCategories, testOptions } from './TestDetailsFixtures';
+import { DateTimePicker } from '@mui/x-date-pickers';
 
 const TestDetails = () => {
   return (
@@ -21,15 +20,9 @@ const TestDetails = () => {
         <TextInput label='Title' variant='outlined' />
         <StyledTextField label='Description' multiline maxRows={4} />
         <TextInput label='Assigned' variant='outlined' />
-
         <DateTimeWrapper>
-          <StyledTimeSelector label='Start time' />
-          <StyledDateSelector label='Start date' />
-        </DateTimeWrapper>
-
-        <DateTimeWrapper>
-          <StyledTimeSelector label='End time' />
-          <StyledDateSelector label='End date' />
+          <DateTimePicker label='Start time' />
+          <DateTimePicker label='End time' />
         </DateTimeWrapper>
         <Autocomplete
           options={testOptions}
