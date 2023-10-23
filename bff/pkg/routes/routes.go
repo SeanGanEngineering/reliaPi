@@ -20,7 +20,10 @@ func RunApp() {
 
 	fmt.Println("Database actions completed")
 
+	//Create tables
 	controllers.CreateTemperatureTables(db)
+
+	controllers.CreatePlanTable(db)
 
 	router := gin.Default()
 
@@ -51,6 +54,10 @@ func RunApp() {
 
 	router.POST("/temperatures", func(c *gin.Context) {
 		controllers.AddDataPoint(db, c)
+	})
+
+	router.POST("/test-plans", func(c *gin.Context) {
+		controllers.AddTestPlan(db, c)
 	})
 
 	router.Run(":8080")
