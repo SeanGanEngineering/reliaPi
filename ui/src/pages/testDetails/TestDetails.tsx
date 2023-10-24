@@ -13,11 +13,16 @@ import {
   FormContainer,
   TextFieldElement,
 } from 'react-hook-form-mui';
+import { addTestPlan } from '../../api/testPlans';
 
 const TestDetails = () => {
+  const handleSubmit = async (data) => {
+    const addPlan = await addTestPlan(data);
+    console.log(addPlan);
+  };
   return (
     <PageWrapper>
-      <FormContainer onSuccess={(data) => console.log(data)}>
+      <FormContainer onSuccess={(data) => handleSubmit(data)}>
         <PaddingWrapper>
           <Typography variant='h3'>Plan your test</Typography>
           <br />
