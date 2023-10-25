@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"database/sql"
+	"fmt"
 	"net/http"
 	models "reliaPi/pkg/models"
 
@@ -48,4 +49,32 @@ func AddTestPlan(db *sql.DB, c *gin.Context) error {
 
 	return nil
 
+}
+
+func GetTestPlans(db *sql.DB, c *gin.Context) {
+	rows, err := db.Query("SELECT * FROM testplans")
+	CheckError(err)
+
+	var testPlans []gin.H
+	for rows.Next() {
+		var id int
+		var title string
+		var description string
+		var assigned string
+		var startTime string
+		var endTime string
+		var metric string
+		var testType string
+		if err := rows.Scan(&id, &title, &description, &assigned, &startTime, &endTime, &metric, &testType); err != nil {
+			fmt.Println("Error scanning row", err)
+		}
+		testPlans = append(testPlans, gin.H{"ID": id, "title": title, "description": description, "assigned": assigned, "startTime": startTime, "endTime": endTime, "metric": metric, "testType": testType})
+	}
+	if err := rows.Err(); err != nil {
+		fmt.Println("Error iterating through result set:", err)
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"testPlans": testPlans,
+	})
 }

@@ -17,8 +17,12 @@ import { addTestPlan } from '../../api/testPlans';
 
 const TestDetails = () => {
   const handleSubmit = async (data) => {
-    const addPlan = await addTestPlan(data);
-    console.log(addPlan);
+    try {
+      const addPlan = await addTestPlan(data);
+      console.log('Added plan', addPlan);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <PageWrapper>
