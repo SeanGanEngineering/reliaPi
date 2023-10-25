@@ -60,6 +60,10 @@ func RunApp() {
 		controllers.AddTestPlan(db, c)
 	})
 
+	router.GET("/test-plans", func(c *gin.Context) {
+		controllers.GetTestPlans(db, c)
+	})
+
 	router.Run(":8080")
 	return
 }
