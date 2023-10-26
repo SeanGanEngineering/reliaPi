@@ -1,4 +1,4 @@
-import * as math from 'mathjs';
+import * as math from "mathjs";
 
 export const graph = (array: number[]): number[] => {
   const mean: number = calcMean(array);
@@ -29,7 +29,11 @@ export const calcSD = (array: number[]): number => {
   return Math.sqrt(sub);
 };
 
-export const calcSixSigma_cp = (array: number[], usl: number, lsl: number): number => {
+export const calcSixSigma_cp = (
+  array: number[],
+  usl: number,
+  lsl: number,
+): number => {
   const range: number = usl - lsl;
   const sd: number = calcSD(array);
   return range / (6 * sd);
@@ -50,6 +54,6 @@ export const calcZLower = (lsl: number, array: number[]): number => {
 export const ppm = (array: number[], lsl: number, usl: number): number => {
   const zl: number = calcZLower(lsl, array);
   const zu: number = calcZUpper(usl, array);
-  const range: number = (1 - phi(zl)) + (1 - phi(zu)) * 1000000;
+  const range: number = 1 - phi(zl) + (1 - phi(zu)) * 1000000;
   return range;
 };

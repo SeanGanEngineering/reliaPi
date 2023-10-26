@@ -1,11 +1,15 @@
-import React from 'react';
-import { Breadcrumbs, Link } from '@mui/material';
+import React from "react";
+import { Breadcrumbs, Link } from "@mui/material";
 
-const BreadCrumbs = ({path}: {path: string[]}) => {
+const BreadCrumbs = ({ path }: { path: string[] }) => {
   return (
-    <Breadcrumbs maxItems={2} aria-aria-label='breadcrumb'>
+    <Breadcrumbs maxItems={2} aria-aria-label="breadcrumb">
       {path.map((item) => {
-        return <Link key={item} href="#" color={'inherit'}>{item}</Link>
+        return (
+          <Link key={item} href="#" color={"inherit"}>
+            {item}
+          </Link>
+        );
       })}
     </Breadcrumbs>
   );
