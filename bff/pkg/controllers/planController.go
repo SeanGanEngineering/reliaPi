@@ -78,3 +78,23 @@ func GetTestPlans(db *sql.DB, c *gin.Context) {
 		"testPlans": testPlans,
 	})
 }
+
+func GetTestPlanById(db *sql.DB, testId string, c *gin.Context) {
+	var id int
+	var title string
+	var description string
+	var assigned string
+	var startTime string
+	var endTime string
+	var metric string
+	var testType string
+
+	err := db.QueryRow("SELECT * FROM testPlans WHERE id = $1", testId).Scan(&id, &title, &description, &assigned, &startTime, &endTime, &metric, &testType)
+
+	if err != nil {
+		fmt.Println("Error querying user by ID:", err)
+		c.JSON(http.StatusNotFound, gin.H{"error": "User not found"})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"ID": id, "title": title, "description": description, "assigned": assigned, "startTime": startTime, "endTime": endTime, "metric": metric, "testType": testType})
+}
