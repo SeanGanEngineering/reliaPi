@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const PageWrapper = styled.div`
   display: flex;
@@ -17,8 +17,8 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   height: 100%;
   width: 60px;
-  background-color: #181A1C;
-`
+  background-color: #181a1c;
+`;
 
 export const LayoutWrapper = styled.div`
   display: flex;
@@ -27,17 +27,16 @@ export const LayoutWrapper = styled.div`
   align-items: start;
   height: 100%;
   width: 500px;
-  background-color: #F0F2F4;
-`
+  background-color: #f0f2f4;
+`;
 
-export const ContentWrapper = styled.div` 
+export const ContentWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
-`
+`;
 export const TextWrapper = styled.div`
   justify-content: space-between;
-
 `;

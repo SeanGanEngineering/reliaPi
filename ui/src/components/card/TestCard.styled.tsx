@@ -1,5 +1,5 @@
-import { Button, Card, CardActions, CardContent } from '@mui/material';
-import styled from 'styled-components';
+import { Button, Card, CardActions, CardContent } from "@mui/material";
+import styled from "styled-components";
 
 export const StyledCard = styled(Card)`
   border-radius: 40px;
@@ -14,7 +14,7 @@ export const StyledCard = styled(Card)`
   max-width: 400px;
   scale: 1;
   transition: 0.1s;
-  &:hover{
+  &:hover {
     scale: 1.1;
     transition: 0.1s;
   }

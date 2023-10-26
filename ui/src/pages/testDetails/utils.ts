@@ -1,3 +1,1 @@
-export const datettimeToTimestamp = () => {
-  
-}
+export const datettimeToTimestamp = () => {};

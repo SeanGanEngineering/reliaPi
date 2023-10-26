@@ -5,4 +5,4 @@ export const NavWrapper = styled.div`
   flex-direction: column;
   gap: 10px;
   margin-top: 10px;
-`
+`;

@@ -1,21 +1,35 @@
-import { Avatar, Card, CardContent, CardHeader, Typography } from '@mui/material';
-import React from 'react';
+import {
+  Avatar,
+  Card,
+  CardContent,
+  CardHeader,
+  Typography,
+} from "@mui/material";
+import React from "react";
 
 const EventCard: React.FC = () => {
   return (
-    <Card sx={{
-      display: 'flex',
-      flexDirection: 'row',
-      width: '300px',
-      height: '100x', 
-      justifyContent: 'start', 
-      alignItems: 'center',
-      gap: '0px',
-      padding: '0px',
-      maxWidth: '500px'}}>
-      <CardHeader avatar={  <Avatar sx={{ bgcolor: 'red' }} aria-label="recipe">
+    <Card
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        width: "300px",
+        height: "100x",
+        justifyContent: "start",
+        alignItems: "center",
+        gap: "0px",
+        padding: "0px",
+        maxWidth: "500px",
+      }}
+    >
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
             SG
-          </Avatar>} sx={{backgroundColor: 'clear', height: '100%'}}/>
+          </Avatar>
+        }
+        sx={{ backgroundColor: "clear", height: "100%" }}
+      />
       <CardContent>
         <Typography>10:15 am</Typography>
         <Typography>Start testing</Typography>

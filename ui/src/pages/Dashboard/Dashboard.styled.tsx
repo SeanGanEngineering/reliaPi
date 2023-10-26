@@ -7,4 +7,4 @@ export const PageContainer = styled.div`
   flex-direction: column;
   gap: 30px;
   overflow-y: scroll;
-`
+`;

@@ -1,5 +1,5 @@
-import { Button } from '@mui/material';
-import { createRandomTemperaturePoints } from '../../api/temperature';
+import { Button } from "@mui/material";
+import { createRandomTemperaturePoints } from "../../api/temperature";
 
 const TemperatureAdd = () => {
   // const data: TemperatureProps = {
