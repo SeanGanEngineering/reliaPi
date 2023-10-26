@@ -64,6 +64,11 @@ func RunApp() {
 		controllers.GetTestPlans(db, c)
 	})
 
+	router.GET("/test-plans/:id", func(c *gin.Context) {
+		testID := c.Param("id")
+		controllers.GetTestPlanById(db, testID, c)
+	})
+
 	router.Run(":8080")
 	return
 }
