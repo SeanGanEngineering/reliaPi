@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const PageWrapper = styled.div`
   display: flex;
@@ -16,8 +16,9 @@ export const HeaderWrapper = styled.div`
   justify-content: start;
   align-items: center;
   height: 100%;
-  width: 60px;
-  background-color: #181a1c;
+
+  width: auto;
+  background-color: white;
 `;
 
 export const LayoutWrapper = styled.div`

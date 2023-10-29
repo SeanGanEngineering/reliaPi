@@ -1,7 +1,11 @@
-import { NextButton } from "./Next.styled";
+import { NextButton } from './Next.styled';
 
 const Next = () => {
-  return <NextButton variant="contained">Next</NextButton>;
+  return (
+    <NextButton variant='contained' type='submit'>
+      Next
+    </NextButton>
+  );
 };
 
 export default Next;
