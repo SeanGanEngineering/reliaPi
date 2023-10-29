@@ -1,11 +1,11 @@
-import { Typography } from "@mui/material";
+import { Typography } from '@mui/material';
 import {
   ActionButton,
   CardActionWrapper,
   CardContentWrapper,
   StyledCard,
-} from "./TestCard.styled";
-import { useNavigate } from "react-router-dom";
+} from './TestCard.styled';
+import { useNavigate } from 'react-router-dom';
 
 interface TestCardProps {
   title: string;
@@ -32,25 +32,25 @@ const TestCard = ({
     <StyledCard>
       <div
         style={{
-          display: "flex",
-          width: "100%",
-          alignItems: "center",
-          justifyContent: "center",
+          display: 'flex',
+          width: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         {icon}
       </div>
       <CardContentWrapper>
         <div>
-          <Typography align="center" gutterBottom variant="h5" component="div">
+          <Typography align='center' gutterBottom variant='h5' component='div'>
             {title}
           </Typography>
-          <Typography align="center" variant="body2" color="text.secondary">
+          <Typography align='center' variant='body2' color='text.secondary'>
             {description}
           </Typography>
         </div>
         <CardActionWrapper>
-          <ActionButton variant="contained" onClick={() => handleNavigate()}>
+          <ActionButton variant='contained' onClick={() => handleNavigate()}>
             {buttonText}
           </ActionButton>
         </CardActionWrapper>

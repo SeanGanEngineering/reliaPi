@@ -13,3 +13,16 @@ export const addTestPlan = async (testData) => {
     console.log(error);
   }
 };
+
+export const getTestPlans = async () => {
+  try {
+    const response = await axios({
+      method: "get",
+      url: "http://localhost:8080/test-plans",
+    });
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}

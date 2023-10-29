@@ -1,5 +1,5 @@
-import { Button, Card, CardActions, CardContent } from "@mui/material";
-import styled from "styled-components";
+import { Button, Card, CardActions, CardContent } from '@mui/material';
+import styled from 'styled-components';
 
 export const StyledCard = styled(Card)`
   border-radius: 40px;
