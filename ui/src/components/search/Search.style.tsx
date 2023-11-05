@@ -1,5 +1,5 @@
-import { Autocomplete } from "@mui/material";
-import styled from "styled-components";
+import { Autocomplete } from '@mui/material';
+import styled from 'styled-components';
 
 export const LayoutWrapper = styled.div`
   display: flex;
@@ -8,10 +8,13 @@ export const LayoutWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const StyledAutocomplete = styled(Autocomplete)`
-  width: 300px;
-  background-color: white;
-`;
+export const StyledAutocomplete = styled(Autocomplete).attrs({
+  sx: {
+    width: '200px',
+    borderRadius: '50px',
+  },
+})``;
+
 export const WidthWrapper = styled.div`
   display: flex;
   flex-direction: row;

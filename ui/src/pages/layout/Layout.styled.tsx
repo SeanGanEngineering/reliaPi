@@ -8,6 +8,7 @@ export const PageWrapper = styled.div`
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+  background-color: #f1f1f1;
 `;
 
 export const HeaderWrapper = styled.div`
@@ -16,9 +17,7 @@ export const HeaderWrapper = styled.div`
   justify-content: start;
   align-items: center;
   height: 100%;
-
   width: auto;
-  background-color: white;
 `;
 
 export const LayoutWrapper = styled.div`

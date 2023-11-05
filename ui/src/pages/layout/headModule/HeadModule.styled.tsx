@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { Typography } from '@mui/material';
+import styled from 'styled-components';
 
 export const LayoutWrapper = styled.div`
   display: flex;
@@ -16,9 +17,10 @@ export const SectionWrapper = styled.div`
   gap: 10px;
 `;
 
-export const LogoText = styled.div`
-  font-family: "Open Sans", sans-serif;
-  font-size: 30px;
-  font-weight: bold;
-  font-style: italic;
-`;
+export const LogoText = styled(Typography).attrs({
+  sx: {
+    fontWeight: 600,
+    fontSize: 18,
+    letterSpacing: 1,
+  },
+})``;
