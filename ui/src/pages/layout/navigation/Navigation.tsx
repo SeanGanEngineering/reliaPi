@@ -11,28 +11,31 @@ import {
 import React, { useState } from 'react';
 import List from '@mui/material/List';
 import {
-  AccessAlarm,
   Add,
   BarChart,
-  Home,
+  Book,
+  Dashboard,
+  DataArrayRounded,
   Inbox,
+  LogoutTwoTone,
   Mail,
   Monitor,
-  Search,
+  Science,
   Settings,
-  Wifi,
 } from '@mui/icons-material';
-import { NavWrapper, StyledButton } from './Navigation.styled';
+import { NavWrapper, PText, StyledButton } from './Navigation.styled';
 import TestCard from '../../../components/card/testInfo/TestCard';
 import test from '../../../assets/images/test.png';
 import plan from '../../../assets/images/plan.png';
 import monitor from '../../../assets/images/monitor.png';
-import { useNavigate } from 'react-router-dom';
+
+import Search from '../../../components/search/Search';
+import { LogoText } from '../headModule/HeadModule.styled';
+import logo from '../../../assets/images/logo.png';
 
 const Navigation = () => {
   const [viewMenu, setViewMenu] = useState(false);
   const [viewTest, setViewTest] = useState(false);
-  const navigate = useNavigate();
 
   const toggleDrawer =
     () => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -94,43 +97,62 @@ const Navigation = () => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 'auto',
-    p: 4,
+    PText: 4,
   };
 
   return (
     <NavWrapper>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+        <img
+          src={logo}
+          height={'50px'}
+          width={'50px'}
+          style={{ borderRadius: '10px' }}
+        />
+        <LogoText>Scout</LogoText>
+      </div>
+      <br />
+      <Search />
+      <br />
       <StyledButton onClick={() => setViewMenu(true)}>
-        <Settings />
-        <p>Test</p>
-      </StyledButton>
-      <StyledButton onClick={() => navigate('/')}>
-        <Home />
-        <p>Home</p>
+        <Dashboard sx={{ color: 'gray' }} />
+        <PText>Dashboard</PText>
       </StyledButton>
       <StyledButton onClick={() => setViewTest(true)}>
-        <Add />
-        <p>Add</p>
+        <Add sx={{ color: 'gray' }} />
+        <PText>Create</PText>
+      </StyledButton>
+      <StyledButton onClick={() => setViewTest(true)}>
+        <Monitor sx={{ color: 'gray' }} />
+        <PText>Monitor</PText>
       </StyledButton>
       <StyledButton onClick={() => setViewMenu(true)}>
-        <Wifi />
-        <p>Connect</p>
+        <Science sx={{ color: 'gray' }} />
+        <PText>Test</PText>
       </StyledButton>
       <StyledButton onClick={() => setViewMenu(true)}>
-        <Search />
-        <p>Search</p>
+        <BarChart sx={{ color: 'gray' }} />
+        <PText>Reports</PText>
       </StyledButton>
       <br />
       <StyledButton onClick={() => setViewMenu(true)}>
-        <Monitor />
-        <p>Monitor</p>
+        <Book sx={{ color: 'gray' }} />
+        <PText>Standards</PText>
       </StyledButton>
       <StyledButton onClick={() => setViewMenu(true)}>
-        <BarChart />
-        <p>Chart</p>
+        <DataArrayRounded sx={{ color: 'gray' }} />
+        <PText>Export</PText>
+      </StyledButton>
+      <br />
+      <br />
+
+      <StyledButton onClick={() => setViewMenu(true)}>
+        <Settings sx={{ color: 'gray' }} />
+        <PText>Settings</PText>
       </StyledButton>
       <StyledButton onClick={() => setViewMenu(true)}>
-        <AccessAlarm />
-        <p>Notify</p>
+        <LogoutTwoTone sx={{ color: 'gray' }} />
+        <PText>Logout</PText>
       </StyledButton>
 
       <Drawer anchor='left' open={viewMenu} onClose={() => setViewMenu(false)}>
