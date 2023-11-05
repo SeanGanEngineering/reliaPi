@@ -32,7 +32,7 @@ import monitor from '../../../assets/images/monitor.png';
 import Search from '../../../components/search/Search';
 import { LogoText } from '../headModule/HeadModule.styled';
 import logo from '../../../assets/images/logo.png';
-
+import UserProfile from '../../../components/userProfile/UserProfile';
 const Navigation = () => {
   const [viewMenu, setViewMenu] = useState(false);
   const [viewTest, setViewTest] = useState(false);
@@ -145,6 +145,7 @@ const Navigation = () => {
       </StyledButton>
       <br />
       <br />
+      <UserProfile name={'Sean Gan'} />
 
       <StyledButton onClick={() => setViewMenu(true)}>
         <Settings sx={{ color: 'gray' }} />
